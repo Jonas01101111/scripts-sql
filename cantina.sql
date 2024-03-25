@@ -42,7 +42,8 @@ CREATE TABLE IF NOT EXISTS fornecedor (
     cnpj CHAR(14),
     PRIMARY KEY (id)
 );
-#4
+
+
 create table if not exists prod_fornecedor_assoc(
 id_produto int ,
 id_fornecedor int,
@@ -50,7 +51,8 @@ primary key(id_produto, id_fornecedor),
 foreign key (id_fornecedor) references fornecedor(id),
 foreign key (id_produto) references produto(id)
 );
-#5
+
+
 create table if not exists despesa(
 id int auto_increment,
 descricao varchar(60),
@@ -58,7 +60,8 @@ datavencimento date,
 valor double,
 primary key(id)
 );
-#6
+
+
 create table if not exists pagamento(
 id int auto_increment,
 valor double,
@@ -69,14 +72,16 @@ primary key(id),
 foreign key (id_despesa) references despesa(id),
 foreign key(id_fornecedor) references fornecedor(id)
 );
-#7
+
+
 create table if not exists cargo(
 id int auto_increment,
 tipo varchar(20),
 descricao varchar(40),
 primary key(id)
 );
-#8
+
+
 create table if not exists funcionario(
 id int auto_increment,
 nome varchar(70),
@@ -88,7 +93,8 @@ primary key(id),
 foreign key (id_endereco) references endereco(id),
 foreign key (id_cargo) references cargo(id)
 );
-#9
+
+
 create table if not exists cliente(
 id int auto_increment,
 nome varchar(40),
@@ -102,7 +108,8 @@ primary key(id),
 foreign key (id_funcionario) references funcionario(id),
 foreign key (id_endereco) references endereco(id)
 );
-#10
+
+
 create table if not exists venda(
 id int auto_increment,
 datavenda date,
@@ -112,7 +119,8 @@ primary key(id),
 foreign key (id_cliente) references cliente(id),
 foreign key (id_funcionario) references funcionario(id)
 );
-#11
+
+
 create table if not exists recebimento(
 id int auto_increment,
 datarecebimento date,
@@ -122,18 +130,16 @@ id_venda int,
 primary key(id),
 foreign key (id_venda) references venda(id)
 );
-#12
-create table if not exists (
-id int auto_increment,
-,
-primary key(id)
+
+
+create table if not exists item(
+valorunitario double,
+quantidade int,
+desconto int,
+valortotal double,
+id_venda int,
+id_produto int,
+primary key(id_venda, id_produto),
+foreign key(id_venda) values venda(id),
+foreign key(id_produto) values produto(id)
 );
-
-#13
-create table if not exists (
-id int auto_increment,
-,
-primary key(id)
-);
-
-
