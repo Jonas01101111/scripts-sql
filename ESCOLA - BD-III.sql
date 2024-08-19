@@ -1,0 +1,339 @@
+DROP DATABASE IF EXISTS ESCOLA;
+
+CREATE DATABASE IF NOT EXISTS ESCOLA;
+
+USE ESCOLA;
+
+CREATE TABLE IF NOT EXISTS ALUNOS 
+(ID  TINYINT NOT NULL AUTO_INCREMENT, 
+ NOME CHAR(50) NOT NULL, 
+ RG CHAR(12) NOT NULL,
+ CPF CHAR(14) NOT NULL,
+ DATA_NASCIMENTO DATE NOT NULL,
+ ENDERECO CHAR (50) NOT NULL,
+ NUMERO SMALLINT NOT NULL,
+ COMPLEMENTO VARCHAR (50),
+ BAIRRO CHAR(40) NOT NULL, 
+ ID_CIDADE SMALLINT NOT NULL,
+ CEP CHAR (10) NOT NULL,
+ TELEFONE1 CHAR(12) NOT NULL,
+ TELEFONE2 CHAR(12) NOT NULL, 
+ PAI CHAR(50) NOT NULL, 
+ MAE CHAR(50) NOT NULL,
+ PRIMARY KEY (ID));
+ 
+CREATE TABLE IF NOT EXISTS CIDADES
+(ID SMALLINT  NOT NULL AUTO_INCREMENT, 
+ NOME CHAR(50) NOT NULL,
+ UF CHAR(2) NOT NULL,
+ PRIMARY KEY (ID));
+ 
+CREATE TABLE IF NOT EXISTS DISCIPLINAS
+(ID TINYINT  NOT NULL AUTO_INCREMENT,
+ NOME CHAR(50) NOT NULL, 
+ PRIMARY KEY (ID));
+
+CREATE TABLE IF NOT EXISTS PROFESSORES
+(ID  TINYINT NOT NULL AUTO_INCREMENT, 
+ NOME CHAR(50) NOT NULL, 
+ RG CHAR(12) NOT NULL,
+ CPF CHAR(14) NOT NULL,
+ DATA_NASCIMENTO DATE NOT NULL,
+ ENDERECO CHAR (50) NOT NULL,
+ NUMERO SMALLINT NOT NULL, 
+ COMPLEMENTO VARCHAR (50),
+ BAIRRO CHAR(40) NOT NULL, 
+ ID_CIDADE SMALLINT NOT NULL,
+ CEP CHAR (10) NOT NULL,
+ TELEFONE1 CHAR(12) NOT NULL,
+ TELEFONE2 CHAR(12) NOT NULL, 
+ PAI CHAR(50) NOT NULL, 
+ MAE CHAR(50) NOT NULL,
+ PRIMARY KEY (ID));
+
+# INSERÇÃO DE ALUNOS
+INSERT INTO ALUNOS (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE)
+VALUES ('Gabriela da Silva','17.973.898-3','147.520.609-61','1979-03-26','Rua Angelo Zugliani',33,'Casa','Jardim Maria Luiza',5,'10.584-471','29-8615-4558','29-8775-2452','Professor Josué','Anabela Fernandes Prado');
+
+INSERT INTO ALUNOS (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE)
+VALUES ('Nacib Saad','22.184.159-9','275.213.650-63','1961-04-14','Rua Major Ascanio',247,'Apto.','Vila Brasil',4,'20.125-144','10-1718-5110','10-8078-2951','Rômulo Vieira','Dona Arminda');
+
+INSERT INTO ALUNOS (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE)
+VALUES ('Mundinho Falcão','15.486.669-3','221.593.349-78','1981-03-20','Rua Francisco Glicério',1807,'Fundos','Vila Buscariolo',1,'18.391-120','22-1897-4072','22-8649-6869','Chico Moleza','Maria Lupicínia');
+
+INSERT INTO ALUNOS (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE)
+VALUES ('Manoel da Onças','26.230.647-2','356.115.460-86','1931-04-02','Rua Visconde Rio Branco',984,'Casa','Centro',9,'13.133-763','13-5006-1895','13-9529-3164','João Fulgêncio','Miquelina');
+
+INSERT INTO ALUNOS (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE)
+VALUES ('Coronel Coriolano','13.281.822-9','290.724.003-96','1933-01-27','Avenida do Café',488,'3º Andar, Nº 52','Vila Maria Cristina',2,'28.719-415','28-7366-0612','28-8931-1282','Coronel Ribeirinho','Florzinha Reis');
+
+INSERT INTO ALUNOS 
+(NOME, 
+ RG, 
+ CPF, 
+ DATA_NASCIMENTO, 
+ ENDERECO, 
+ NUMERO, 
+ COMPLEMENTO, 
+ BAIRRO, 
+ ID_CIDADE, 
+ CEP, 
+ TELEFONE1, 
+ TELEFONE2, 
+ PAI, 
+ MAE)
+VALUES 
+('Maria Machadão',
+ '18.519.133-2',
+ '312.467.859-64',
+ '1972-05-27',
+ 'Rua Rangel Pestana',
+ 700,
+ 'Bloco II',
+ 'Vila Nova',
+ 0,
+ '14.227-991',
+ '23-8564-6322',
+ '23-9012-8224',
+ 'Coronel Amâncio Leal',
+ 'Marinalva Tavares'),
+
+('Zarolha',
+ '28.180.997-2',
+ '223.168.731.94',
+ '1969-11-06',
+ 'Rua Dr. Quinzinho',
+ 511,
+ 'Casa',
+ 'Chacara Peccioli',
+ 7,
+ '22.192-012',
+ '10-4211-8537',
+ '10-9128-3283',
+ 'Negro Fagundes',
+ 'Quinquina dos Reis'),
+
+('Coronel Ramiro Bastos',
+ '29.226.206-6',
+ '206.558.702-80',
+ '1949-04-18',
+ 'Avenida Gustavo Chiozzi',
+ 405,
+ 'Subsolo',
+ 'Jardim Netinho Prado',
+ 6,
+ '11.235-877',
+ '19-8340-8276',
+ '19-9651-4781',
+ 'Alfredo Bastos',
+ 'Conceição Bastos'),
+
+('Tonico Bastos',
+ '16.170.745-4',
+ '220.178.979-44',
+ '1967-02-10',
+ 'Rua Santa Barbara',
+ 165,
+ 'A',
+ 'Vila Vicente',
+ 6,
+ '26.740-878',
+ '25-2533-2285',
+ '25-9979-4499',
+ 'Coronel Ramiro Bastos',
+ 'Gerusa Bastos'),
+
+('Doroteia',
+ '29.510.610-5',
+ '102.566.825-44',
+ '1927-09-13',
+ 'Rua Aristides Lobo Sobrinho',
+ 101,
+ 'Apto.',
+ 'Chacara Braz Miraglia',
+ 8,
+ '13.474-853',
+ '12-4511-6110',
+ '12-8145-0515',
+ 'Dr. Osmundo Pimentel',
+ 'Olga Bastos');
+
+
+# INSERÇÃO DE CIDADES
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Brasília','DF');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Guaragi','PR');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Juazeiro','BA');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Nova Iguaçu','RJ');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Rio Bonito','RJ');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Rio de Janeiro','RJ');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Rosário do Sul','RS');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('São Paulo','SP');
+
+INSERT INTO CIDADES (NOME, UF)
+VALUES('Ubá','MG');
+
+
+# INSERÇÃO DE DISCIPLINAS
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Banco de Dados III');
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Ética e Cidadania Organizacional');
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Programação de Aplicativos Mobile II');
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Programação Web III');
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Qualidade e Teste de Software');
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Segurança de Sistemas de Informação');
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Sistemas Embarcados');
+
+INSERT INTO DISCIPLINAS (NOME)
+VALUES ('Trabalho de Conclusão de Curso (TCC)');
+
+
+# INSERÇÃO DE PROFESSORES
+
+INSERT INTO PROFESSORES (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE) 
+VALUES ('Albert Einstein','28.940.133-7','121.903.479-84','1978-03-10','Avenida Zezinho Magalhães',856,null,'Jardim Maria Luiza',8,'15.726-718','15-3826-7758','11-2953-9891','Rui Barbosa','Tarsila do Amaral');
+
+INSERT INTO PROFESSORES (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE) 
+VALUES ('Mary Kenneth Keller','28.114.970-8','224.662.570-68','1974-04-03','Avenida João Sanzovo',2621,'Apto.','Vila Brasil',4,'16.518-565','28-4010-8617','15-7438-6767','Van Gogh','Anne Frank');
+
+INSERT INTO PROFESSORES (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE) 
+VALUES ('Anne Frank','10.114.605-2','219.751.678-57','1983-01-25','Avenida Décio Pacheco de Almeida Prado',424,null,'Vila Buscariolo',3,'22.140-228','24-9022-8347','10-9870-4483','Caio Calígula','Emma Goldman');
+
+INSERT INTO PROFESSORES (NOME, RG, CPF, DATA_NASCIMENTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, ID_CIDADE, CEP, TELEFONE1, TELEFONE2, PAI, MAE) 
+VALUES ('Deodoro da Fonseca','25.396.187-8','359.079.647-32','1974-10-29','Rua Hermínio Mantelli',60,'Bloco IV','Centro',1,'19.972-636','24-1360-4773','14-6765-7613','João Fulgêncio','Miquelina');
+
+INSERT INTO PROFESSORES 
+(NOME, 
+ RG, 
+ CPF, 
+ DATA_NASCIMENTO, 
+ ENDERECO, 
+ NUMERO, 
+ COMPLEMENTO, 
+ BAIRRO, 
+ ID_CIDADE, 
+ CEP, 
+ TELEFONE1, 
+ TELEFONE2, 
+ PAI, 
+ MAE) 
+VALUES 
+('Ada Lovelace',
+ '23.925.101-6',
+ '279.192.438-93',
+ '1984-06-01',
+ 'Avenida Inácio Curi',
+ 2720,
+ '15º Andar, Nº 52',
+ 'Vila Maria Cristina',
+ 6,
+ '19.848-840',
+ '88-6098-5438',
+ '18-6361-4012',
+ 'Franklin Delano Roosevelt',
+ 'Eva Perón'),
+
+('Evita Peron',
+ '24.713.769-3',
+ '372.405.916-93',
+ '1978-09-18',
+ 'Rua Antônio Sanzovo',
+ 523,
+ 'Fundos',
+ 'Vila Nova',
+ 2,
+ '25.847-690',
+ '16-9613-6453',
+ '47-8341-0247',
+ 'Alexander Graham Bell',
+ 'Josephine Baker'),
+
+('Elizabeth Blackwell',
+ '18.740.042-9',
+ '382.118.396-48',
+ '1975-07-17',
+ 'Rua José Fornale',
+ 18,
+ null,
+ 'Chacara Peccioli',
+ 9,
+ '28.627-007',
+ '23-7079-6114',
+ '16-5180-0166',
+ 'Thomas Alva Edison',
+ 'Inezita Barroso'),
+
+('Floriano Peixoto',
+ '23.839.403-2',
+ '341.096.937-44',
+ '1970-08-12',
+ 'Rua Major Ascanio',
+ 247,
+ 'Apto.',
+ 'Vila Brasil',
+ 3,
+ '23.790-729',
+ '29-4697-7857',
+ '96-2167-3517',
+ 'Cláudio Besserman Vianna',
+ 'Cacilda Becker'),
+
+('Isaac Newton',
+ '17.449.391-5',
+ '142.218.063-22',
+ '1981-11-20',
+ 'Avenida Gustavo Chiozzi',
+ 405,
+ 'Fundos',
+ 'Jardim Netinho Prado',
+ 6,
+ '15.816-763',
+ '46-3726-6048',
+ '21-0588-0277',
+ 'Antonio CarlosJobim',
+ 'Maria Callas'),
+
+('Margaret Thatcher',
+ '12.121.192-7',
+ '195.828.879-69',
+ '1982-07-28',
+ 'R. Francisco Glicério',
+ 1807,
+ null,
+ 'Vila Buscariolo',
+ 3,
+ '28.554-512',
+ '96-8554-2097',
+ '96-9240-6431',
+ 'Adoniran Barbosa',
+ 'Clementina de Jesus');
+
+
