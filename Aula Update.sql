@@ -15,8 +15,4 @@ update alunos set cpf = "255.754.445-79" where nome like "Maria Machadão";
 #6 
 update alunos set pai = "Juvenal das Couves" where nome like "Doroteia";
 #7
-update alunos set where;
-#8
-update alunos set where;
-#9
-update alunos set where;
+update alunos set numero = 1550, bairro = "Centro", endereco = "Rua Major Ascânio" where nome like "Nacib Saad";
