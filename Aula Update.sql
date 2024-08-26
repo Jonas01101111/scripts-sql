@@ -16,3 +16,11 @@ update alunos set cpf = "255.754.445-79" where nome like "Maria Machadão";
 update alunos set pai = "Juvenal das Couves" where nome like "Doroteia";
 #7
 update alunos set numero = 1550, bairro = "Centro", endereco = "Rua Major Ascânio" where nome like "Nacib Saad";
+
+
+#-------------------outro dia!
+
+#1 alunos que nasceram entre 1978 e 1983 para casa
+select * from alunos where data_nascimento between "1978-01-01" and "1983-12-31";
+update alunos set complemento = "casa" where data_nascimento between "1978-01-01" and "1983-12-31";
+#2 maria greataxe pra brasilia
